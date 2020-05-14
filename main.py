@@ -31,20 +31,48 @@ def is_right(val):
 		print ("Please, insert a right option for the game")
 		return True
 
+def compare_value(p1,p2):
+
+	val1 = p1.chose
+	val2 = p2.chose
+
+	if val1 == val2:
+		print ("EMPATE")
+	elif (val1=="Rock" and val2=="Scissor") or (val1=="Paper" and val2=="Rock") or(val1=="Scissor" and val2=="Paper"):
+		print ("WIN FOR %s " %p1.player_name)
+	else:
+		print ("WIN FOR %s " %p2.player_name)
+
+class player:
+	player_name=""
+	chose = ""
+	def __init__(self,player_name,chose):
+		self.player_name= player_name
+		self.chose=chose
+		print("%s :::: %s" %(self.player_name,self.chose))
+
 
 
 ###  MAIN ###
 
 # Get the election from player usin command line
 # if value is not right, repeat and repeat
-execute = True
-while execute:
-	print (" Rock, Paper or Scissor?")
-	player_chosen = input().capitalize()
-	execute=is_right(player_chosen)
+while True:
+	execute = True
+	while execute:
+		print (" Rock, Paper or Scissor?")
+		#player_chosen = input().capitalize()
+		player1 = player("PLAYER ",input().capitalize())
+		execute=is_right(player1.chose)
+
+	# election for CPU
+	cpu = player("CPU", randomvalue())
+	#cpu_chosen = randomvalue()
+
+	#print ("Your selection is %s" %player1.chose)
+	#print ("CPU selection is %s" %cpu.chose)
 
 
-cpu_chosen = randomvalue()
+	# comparation of values
+	compare_value(player1,cpu)
 
-print ("Your selection is %s" %player_chosen)
-print ("CPU selection is %s" %cpu_chosen)
