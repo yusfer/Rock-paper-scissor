@@ -57,6 +57,8 @@ class player:
 
 # Get the election from player usin command line
 # if value is not right, repeat and repeat
+
+#this infinite loop is for repeat the game forever and ever
 while True:
 	execute = True
 	while execute:
