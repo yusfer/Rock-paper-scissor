@@ -120,11 +120,22 @@ while not exit:
 		cpu = player("CPU", randomvalue())
 		compare_value(player1,cpu,punctuation)
 	else:
+
+		#EXIT PROCEDURE, SHOW PUNTUATION AND FARAWELL
 		print(punctuation)
+		#sum of every puntuation and add to dictionary of punt
 		sum_punt(punctuation)
-		punctuation["P1"].append("total del 1")
-		punctuation["CPU"].append("total del CPU")
+
+		#adjustmen of name in puntuation table
+		#punctuation[player1.player_name]=punctuation["P1"]
+		#del punctuation["P1"]
+
+		# change dict to dataframe to show it
 		punt_table = pd.DataFrame(punctuation)
+		maxim=punt_table.index.max()
+		punt_table.rename(columns={"P1":player1.player_name}, index={maxim:"TOTAL"},inplace=True)
 		print(punt_table)
+
+
 		print("See you soon!")
 
