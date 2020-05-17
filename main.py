@@ -33,6 +33,9 @@ def is_right(val):
 
 def compare_value(p1,p2):
 
+	print("%s :::: %s" %(p1.player_name,p1.chose))
+	print("%s :::: %s" %(p2.player_name,p2.chose))
+
 	val1 = p1.chose
 	val2 = p2.chose
 
@@ -49,13 +52,16 @@ class player:
 	def __init__(self,player_name,chose):
 		self.player_name= player_name
 		self.chose=chose
-		print("%s :::: %s" %(self.player_name,self.chose))
-
 
 
 ###  MAIN ###
 
-# Get the election from player usin command line
+
+# Take player name
+print("Please, enter your name:")
+player1 = player(input(),"")
+
+# Take the election from player usin command line
 # if value is not right, repeat and repeat
 
 #this infinite loop is for repeat the game forever and ever
@@ -64,7 +70,7 @@ while True:
 	while execute:
 		print (" Rock, Paper or Scissor?")
 		#player_chosen = input().capitalize()
-		player1 = player("PLAYER ",input().capitalize())
+		player1.chose = input().capitalize()
 		execute=is_right(player1.chose)
 
 	# election for CPU
